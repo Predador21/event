@@ -1,0 +1,7 @@
+CREATE EVENT event_1
+ON SCHEDULE EVERY 1 MINUTE
+DO
+  update tbl_account 
+     set status = 'OUT'
+   where status = 'RUNNING' 
+     and d_status <= DATE_SUB(now(), interval 2 MINUTE) ;
