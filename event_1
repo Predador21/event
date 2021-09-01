@@ -3,5 +3,6 @@ ON SCHEDULE EVERY 1 MINUTE
 DO
   update tbl_account 
      set status = 'OUT'
-   where status = 'RUNNING' 
+        ,owner = NULL
+   where status in ( 'RUNNING' , 'QUEUED' ) 
      and d_status <= DATE_SUB(now(), interval 2 MINUTE) ;
