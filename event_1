@@ -3,5 +3,5 @@ ON SCHEDULE EVERY 1 MINUTE
 DO
   update tbl_account 
      set status = 'OUT'
-   where status in ( 'RUNNING' ) 
+   where status in ( 'RUNNING' , 'DELAYED' ) 
      and d_status <= DATE_SUB(now(), interval 60 MINUTE) ;
