@@ -3,5 +3,5 @@ ON SCHEDULE EVERY 1 MINUTE
 DO
   update tbl_account 
      set status = 'DELAYED'
-   where status not in ( 'OUT' , 'QUOTA_EXCEEDED' , 'TOS_VIOLATION' ) 
+   where status in ( 'RUNNING' ) 
      and d_ping <= DATE_SUB(now(), interval 2 MINUTE) ;
