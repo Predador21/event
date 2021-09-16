@@ -1,0 +1,9 @@
+CREATE EVENT event_4
+ON SCHEDULE EVERY 1 MINUTE
+DO
+  update tbl_account 
+     set version = NULL
+        ,ativo = 'F'
+   where status = 'TOS_VIOLATION' 
+     and ativo = 'T' ;
+          
