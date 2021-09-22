@@ -2,5 +2,5 @@ CREATE EVENT event_3
 ON SCHEDULE EVERY 1 MINUTE
 DO
   update tbl_account 
-     set status = 'UNSYNCHRONIZED'
+     set status_ping = 'UNSYNCHRONIZED'
    where d_ping <= DATE_SUB(now(), interval 2 MINUTE) ;
