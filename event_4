@@ -3,4 +3,5 @@ ON SCHEDULE EVERY 1 MINUTE
 DO
   update tbl_account 
      set status_ping = 'ONLINE'
+        ,status = 'RUNNING'
    where d_ping >= DATE_SUB(now(), interval 2 MINUTE) ;
